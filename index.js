@@ -1,7 +1,8 @@
-const { Client, Collection } = require("discord.js");
+require("dotenv").config()
+const { Client, Collection, Intents } = require("discord.js");
 
 const client = new Client({
-    intents: 32767,
+    intents: [Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.DIRECT_MESSAGES, Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MEMBERS],
 });
 module.exports = client;
 
@@ -13,4 +14,4 @@ client.config = require("./config.json");
 // Initializing the project
 require("./handler")(client);
 
-client.login(client.config.token);
+client.login(process.env.token);

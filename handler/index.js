@@ -43,7 +43,7 @@ module.exports = async (client) => {
     client.on("ready", async () => {
         // Register for a single guild
         await client.guilds.cache
-            .get("replace this with your guild id")
+            .get("970701165459284018")
             .commands.set(arrayOfSlashCommands);
 
         // Register for all the guilds the bot is in
@@ -51,8 +51,5 @@ module.exports = async (client) => {
     });
 
     // mongoose
-    const { mongooseConnectionString } = require('../config.json')
-    if (!mongooseConnectionString) return;
-
-    mongoose.connect(mongooseConnectionString).then(() => console.log('Connected to mongodb'));
+    mongoose.connect(process.env.mongooseConnectionString).then(() => console.log('Connected to mongodb'));
 };
