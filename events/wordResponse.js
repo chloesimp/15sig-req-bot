@@ -1,9 +1,6 @@
 const client = require("../index")
 const wordTimer = require("../models/wordTimer")
 const moment = require("moment")
-const {
-    SystemChannelFlags
-} = require("discord.js")
 
 client.on("messageCreate", async message => {
     if (message.author.bot) return
