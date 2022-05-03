@@ -52,4 +52,15 @@ module.exports = async (client) => {
 
     // mongoose
     mongoose.connect(process.env.mongooseConnectionString).then(() => console.log('Connected to mongodb'));
+
+    // start web server
+    const express = require("express")
+    const app = express()
+    const port = 3000
+
+    app.get("/", async (req, res) => {
+        res.send("Hello World")
+    })
+
+    app.listen(port, () => console.log(`Server listening on port ${port}`))
 };
