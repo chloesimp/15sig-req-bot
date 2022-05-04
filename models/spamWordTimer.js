@@ -6,4 +6,4 @@ const schema = new mongoose.Schema({
     responseNumber: Number
 })
 
-module.exports = mongoose.model("chechnyaWordTimer", schema)
+module.exports = mongoose.model("spamWordTimer", schema)
