@@ -8,7 +8,15 @@ client.on("messageCreate", async message => {
 
     if (/\bchechnya\b/i.test(message.content)) {
         chechnya()
-    }
+    } else if (/\bgeorgia\b/i.test(message.content)) {
+        await message.reply({ content: "GEROGEI" })
+    } else if (/\bchimi changa\b/i.test(message.content)) {
+        await message.reply({ content: "Chiambab" })
+    } else if (/\bchi chis\b/i.test(message.content)) {
+        await message.reply({ content: "chiambab" })
+    } else if (/\bigor\b/i.test(message.content)) [
+        await message.reply({ content: "https://cdn.discordapp.com/attachments/912576964617973770/970692550803456090/unknown.png" })
+    ]
 
     async function checkForMultipleTriggerWords() {
         const string = message.content.toLowerCase()
@@ -35,6 +43,22 @@ client.on("messageCreate", async message => {
 
         if (string.includes("chechen")) {
             await message.reply({ content: "I swear to fucking god if you mention chechnya one more time im gonna go over to where you live, rip out your head and fuck the fresh hole that I just made"  })
+        }
+
+        if (string.includes("georgia")) {
+            await message.reply({ content: "GEROGEI" })
+        }
+
+        if (string.includes("chimi changa")) {   
+            await message.reply({ content: "Chiambab" })
+        }
+
+        if (string.includes("chi chis")) {   
+            await message.reply({ content: "chiambab" })
+        }
+
+        if (string.includes("igor")) {
+            await message.reply({ content: "https://cdn.discordapp.com/attachments/912576964617973770/970692550803456090/unknown.png" })
         }
     }
 
