@@ -283,7 +283,7 @@ client.on("messageCreate", async message => {
                 })
             } else if (unix < spamSchema.timestamp && spamSchema.responseNumber === 3) {
                 await message.reply({
-                    content: 'TUSHONKA SUPERIOR'
+                    content: "STFU TUSHONKA SUPERIOR"
                 })
             } else if (unix > spamSchema.timestamp && spamSchema.responseNumber === 3) {
                 spamSchema.deleteOne({
