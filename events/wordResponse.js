@@ -299,6 +299,20 @@ client.on("messageCreate", async message => {
                 await message.reply({
                     content: "Spam is so fucking gross, I can't believe you americans actually like that slimy shit"
                 })
+            } else {
+                spamSchema.deleteOne({
+                    userID
+                })
+
+                await spamWordTimer.create({
+                    timestamp: moment().add(300, "s").unix(),
+                    userID,
+                    responseNumber: 1
+                })
+
+                await message.reply({
+                    content: "Spam is so fucking gross, I can't believe you americans actually like that slimy shit"
+                })
             }
         }
     }
