@@ -8,15 +8,17 @@ client.on("messageCreate", async message => {
 
     if (/\bchechnya\b/i.test(message.content)) {
         chechnya()
-    } else if (/\bgeorgia\b/i.test(message.content)) {
-        await message.reply({ content: "GEROGEI" })
-    } else if (/\bchimi changa\b/i.test(message.content)) {
-        await message.reply({ content: "Chiambab" })
-    } else if (/\bchi chis\b/i.test(message.content)) {
-        await message.reply({ content: "chiambab" })
-    } else if (/\bigor\b/i.test(message.content)) [
-        await message.reply({ content: "https://cdn.discordapp.com/attachments/912576964617973770/970692550803456090/unknown.png" })
-    ]
+    } 
+    
+    // else if (/\bgeorgia\b/i.test(message.content)) {
+    //     await message.reply({ content: "GEROGEI" })
+    // } else if (/\bchimi changa\b/i.test(message.content)) {
+    //     await message.reply({ content: "Chiambab" })
+    // } else if (/\bchi chis\b/i.test(message.content)) {
+    //     await message.reply({ content: "chiambab" })
+    // } else if (/\bigor\b/i.test(message.content)) {
+    //     await message.reply({ content: "https://cdn.discordapp.com/attachments/912576964617973770/970692550803456090/unknown.png" })
+    // }
 
     async function checkForMultipleTriggerWords() {
         const string = message.content.toLowerCase()
