@@ -87,7 +87,7 @@ client.on("messageCreate", async message => {
                 content: "IM NOT FROM CHECHNYA YOU STUPID FUCKING WESTOID RETARD IM FROM THE CAUCAUSES REGIONS NEAR MT ELBRUS, ELBRUUUS, IN RUSSIA"
             })
             await chechnyaWordTimer.create({
-                timestamp: moment().add(10, "s").unix(),
+                timestamp: moment().add(300, "s").unix(),
                 userID,
                 responseNumber: 1
             })
@@ -114,7 +114,7 @@ client.on("messageCreate", async message => {
                     userID
                 })
                 await chechnyaWordTimer.create({
-                    timestamp: moment().add(10, "s").unix(),
+                    timestamp: moment().add(300, "s").unix(),
                     userID,
                     responseNumber: 1
                 })
@@ -141,7 +141,7 @@ client.on("messageCreate", async message => {
                     userID
                 })
                 await chechnyaWordTimer.create({
-                    timestamp: moment().add(10, "s").unix(),
+                    timestamp: moment().add(300, "s").unix(),
                     userID,
                     responseNumber: 1
                 })
@@ -162,7 +162,7 @@ client.on("messageCreate", async message => {
                     userID
                 })
                 await chechnyaWordTimer.create({
-                    timestamp: moment().add(10, "s").unix(),
+                    timestamp: moment().add(300, "s").unix(),
                     userID,
                     responseNumber: 1
                 })
@@ -183,7 +183,7 @@ client.on("messageCreate", async message => {
                     userID
                 })
                 await chechnyaWordTimer.create({
-                    timestamp: moment().add(10, "s").unix(),
+                    timestamp: moment().add(300, "s").unix(),
                     userID,
                     responseNumber: 1
                 })
@@ -195,7 +195,7 @@ client.on("messageCreate", async message => {
                     userID
                 })
                 await chechnyaWordTimer.create({
-                    timestamp: moment().add(10, "s").unix(),
+                    timestamp: moment().add(300, "s").unix(),
                     userID,
                     responseNumber: 1
                 })
@@ -221,7 +221,7 @@ client.on("messageCreate", async message => {
             })
 
             await spamWordTimer.create({
-                timestamp: moment().add(10, "s").unix(),
+                timestamp: moment().add(300, "s").unix(),
                 userID,
                 responseNumber: 1
             })
@@ -246,7 +246,7 @@ client.on("messageCreate", async message => {
                 })
 
                 await spamWordTimer.create({
-                    timestamp: moment().add(10, "s").unix(),
+                    timestamp: moment().add(300, "s").unix(),
                     userID,
                     responseNumber: 1
                 })
@@ -273,7 +273,7 @@ client.on("messageCreate", async message => {
                 })
 
                 await spamWordTimer.create({
-                    timestamp: moment().add(10, "s").unix(),
+                    timestamp: moment().add(300, "s").unix(),
                     userID,
                     responseNumber: 1
                 })
@@ -291,7 +291,7 @@ client.on("messageCreate", async message => {
                 })
 
                 await spamWordTimer.create({
-                    timestamp: moment().add(10, "s").unix(),
+                    timestamp: moment().add(300, "s").unix(),
                     userID,
                     responseNumber: 1
                 })
