@@ -1,5 +1,5 @@
 const client = require("../index")
-const wordTimer = require("../models/wordTimer")
+const chechnyaWordTimer = require("../models/chechnyaWordTimer")
 const moment = require("moment")
 
 client.on("messageCreate", async message => {
@@ -49,21 +49,21 @@ client.on("messageCreate", async message => {
     async function chechnya() {
         const userID = message.author.id
 
-        const schema = await wordTimer.findOne({
+        const chechnyaSchema = await chechnyaWordTimer.findOne({
             userID
         })
 
-        if (!schema) {
+        if (!chechnyaSchema) {
             await message.reply({
                 content: "IM NOT FROM CHECHNYA YOU STUPID FUCKING WESTOID RETARD IM FROM THE CAUCAUSES REGIONS NEAR MT ELBRUS, ELBRUUUS, IN RUSSIA"
             })
             await wordTimer.create({
-                timestamp: moment().add(10, "s").unix(),
+                timestamp: moment().add(1800, "s").unix(),
                 userID,
                 responseNumber: 1
             })
         } else {
-            if (moment().unix() < schema.timestamp && schema.responseNumber === 1) {
+            if (moment().unix() < chechnyaSchema.timestamp && chechnyaSchema.responseNumber === 1) {
                 const responses = [
                     "Dude I dont live in Chechnya",
                     "Where did you get Chechnya from",
@@ -80,19 +80,19 @@ client.on("messageCreate", async message => {
                 }, {
                     responseNumber: 2
                 })
-            } else if (moment().unix() > schema.timestamp && schema.responseNumber === 1) {
-                schema.deleteOne({
+            } else if (moment().unix() > chechnyaSchema.timestamp && chechnyaSchema.responseNumber === 1) {
+                chechnyaSchema.deleteOne({
                     userID
                 })
                 await wordTimer.create({
-                    timestamp: moment().add(10, "s").unix(),
+                    timestamp: moment().add(1800, "s").unix(),
                     userID,
                     responseNumber: 1
                 })
                 await message.reply({
                     content: "IM NOT FROM CHECHNYA YOU STUPID FUCKING WESTOID RETARD IM FROM THE CAUCAUSES REGIONS NEAR MT ELBRUS, ELBRUUUS, IN RUSSIA"
                 })
-            } else if (moment().unix() < schema.timestamp && schema.responseNumber === 2) {
+            } else if (moment().unix() < chechnyaSchema.timestamp && chechnyaSchema.responseNumber === 2) {
                 const responses = [
                     "fucking stop already i dont fucking live in chechnya",
                     "I SAID I DONT LIVE IN CHECHNYA"
@@ -107,19 +107,19 @@ client.on("messageCreate", async message => {
                 }, {
                     responseNumber: 3
                 })
-            } else if (moment().unix() > schema.timestamp && schema.responseNumber === 2) {
-                schema.deleteOne({
+            } else if (moment().unix() > chechnyaSchema.timestamp && chechnyaSchema.responseNumber === 2) {
+                chechnyaSchema.deleteOne({
                     userID
                 })
                 await wordTimer.create({
-                    timestamp: moment().add(10, "s").unix(),
+                    timestamp: moment().add(1800, "s").unix(),
                     userID,
                     responseNumber: 1
                 })
                 await message.reply({
                     content: "IM NOT FROM CHECHNYA YOU STUPID FUCKING WESTOID RETARD IM FROM THE CAUCAUSES REGIONS NEAR MT ELBRUS, ELBRUUUS, IN RUSSIA"
                 })
-            } else if (moment().unix() < schema.timestamp && schema.responseNumber === 3) {
+            } else if (moment().unix() < chechnyaSchema.timestamp && chechnyaSchema.responseNumber === 3) {
                 await message.reply({
                     content: "I dont live in chechnya"
                 })
@@ -128,19 +128,19 @@ client.on("messageCreate", async message => {
                 }, {
                     responseNumber: 4
                 })
-            } else if (moment().unix() > schema.timestamp && schema.responseNumber === 3) {
-                schema.deleteOne({
+            } else if (moment().unix() > chechnyaSchema.timestamp && chechnyaSchema.responseNumber === 3) {
+                chechnyaSchema.deleteOne({
                     userID
                 })
                 await wordTimer.create({
-                    timestamp: moment().add(10, "s").unix(),
+                    timestamp: moment().add(1800, "s").unix(),
                     userID,
                     responseNumber: 1
                 })
                 await message.reply({
                     content: "IM NOT FROM CHECHNYA YOU STUPID FUCKING WESTOID RETARD IM FROM THE CAUCAUSES REGIONS NEAR MT ELBRUS, ELBRUUUS, IN RUSSIA"
                 })
-            } else if (moment().unix() < schema.timestamp && schema.responseNumber === 4) {
+            } else if (moment().unix() < chechnyaSchema.timestamp && chechnyaSchema.responseNumber === 4) {
                 await message.reply({
                     content: "I dont live in chechnya"
                 })
@@ -149,12 +149,12 @@ client.on("messageCreate", async message => {
                 }, {
                     responseNumber: 4
                 })
-            } else if (moment().unix() > schema.timestamp && schema.responseNumber === 4) {
-                schema.deleteOne({
+            } else if (moment().unix() > chechnyaSchema.timestamp && chechnyaSchema.responseNumber === 4) {
+                chechnyaSchema.deleteOne({
                     userID
                 })
                 await wordTimer.create({
-                    timestamp: moment().add(10, "s").unix(),
+                    timestamp: moment().add(1800, "s").unix(),
                     userID,
                     responseNumber: 1
                 })
@@ -162,11 +162,11 @@ client.on("messageCreate", async message => {
                     content: "IM NOT FROM CHECHNYA YOU STUPID FUCKING WESTOID RETARD IM FROM THE CAUCAUSES REGIONS NEAR MT ELBRUS, ELBRUUUS, IN RUSSIA"
                 })
             } else {
-                schema.deleteOne({
+                chechnyaSchema.deleteOne({
                     userID
                 })
                 await wordTimer.create({
-                    timestamp: moment().add(10, "s").unix(),
+                    timestamp: moment().add(1800, "s").unix(),
                     userID,
                     responseNumber: 1
                 })
