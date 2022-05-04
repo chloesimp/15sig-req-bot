@@ -57,7 +57,7 @@ client.on("messageCreate", async message => {
             await message.reply({
                 content: "IM NOT FROM CHECHNYA YOU STUPID FUCKING WESTOID RETARD IM FROM THE CAUCAUSES REGIONS NEAR MT ELBRUS, ELBRUUUS, IN RUSSIA"
             })
-            await wordTimer.create({
+            await chechnyaWordTimer.create({
                 timestamp: moment().add(1800, "s").unix(),
                 userID,
                 responseNumber: 1
@@ -75,7 +75,7 @@ client.on("messageCreate", async message => {
                 await message.reply({
                     content: responses[random]
                 })
-                await wordTimer.updateOne({
+                await chechnyaWordTimer.updateOne({
                     userID
                 }, {
                     responseNumber: 2
@@ -84,7 +84,7 @@ client.on("messageCreate", async message => {
                 chechnyaSchema.deleteOne({
                     userID
                 })
-                await wordTimer.create({
+                await chechnyaWordTimer.create({
                     timestamp: moment().add(1800, "s").unix(),
                     userID,
                     responseNumber: 1
@@ -102,7 +102,7 @@ client.on("messageCreate", async message => {
                 await message.reply({
                     content: responses[random]
                 })
-                await wordTimer.updateOne({
+                await chechnyaWordTimer.updateOne({
                     userID
                 }, {
                     responseNumber: 3
@@ -111,7 +111,7 @@ client.on("messageCreate", async message => {
                 chechnyaSchema.deleteOne({
                     userID
                 })
-                await wordTimer.create({
+                await chechnyaWordTimer.create({
                     timestamp: moment().add(1800, "s").unix(),
                     userID,
                     responseNumber: 1
@@ -123,7 +123,7 @@ client.on("messageCreate", async message => {
                 await message.reply({
                     content: "I dont live in chechnya"
                 })
-                await wordTimer.updateOne({
+                await chechnyaWordTimer.updateOne({
                     userID
                 }, {
                     responseNumber: 4
@@ -132,7 +132,7 @@ client.on("messageCreate", async message => {
                 chechnyaSchema.deleteOne({
                     userID
                 })
-                await wordTimer.create({
+                await chechnyaWordTimer.create({
                     timestamp: moment().add(1800, "s").unix(),
                     userID,
                     responseNumber: 1
@@ -144,7 +144,7 @@ client.on("messageCreate", async message => {
                 await message.reply({
                     content: "I dont live in chechnya"
                 })
-                await wordTimer.updateOne({
+                await chechnyaWordTimer.updateOne({
                     userID
                 }, {
                     responseNumber: 4
@@ -153,7 +153,7 @@ client.on("messageCreate", async message => {
                 chechnyaSchema.deleteOne({
                     userID
                 })
-                await wordTimer.create({
+                await chechnyaWordTimer.create({
                     timestamp: moment().add(1800, "s").unix(),
                     userID,
                     responseNumber: 1
@@ -165,7 +165,7 @@ client.on("messageCreate", async message => {
                 chechnyaSchema.deleteOne({
                     userID
                 })
-                await wordTimer.create({
+                await chechnyaWordTimer.create({
                     timestamp: moment().add(1800, "s").unix(),
                     userID,
                     responseNumber: 1
