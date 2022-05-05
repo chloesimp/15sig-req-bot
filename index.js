@@ -21,7 +21,7 @@ console.log = (data) => {
     const webhook = new WebhookClient({ url: process.env.consoleWebhook })
 
     webhook.send({
-        content: `\`\`\`${util.format(data)}\`\`\``
+        content: util.format(data)
     })
 
     console.log(util.format(data))
