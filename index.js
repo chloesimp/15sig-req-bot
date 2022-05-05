@@ -18,15 +18,17 @@ require("./handler")(client);
 client.login(process.env.token);
 
 console.log = (data) => {
-    const webhook = new WebhookClient({ url: "https://discord.com/api/webhooks/971674056854241300/LCtHKUIs-AyQI8s9XrzBSjQ8k91WUqaBFjFjDRtyH0AclrnHbW1JK3AtcfPc-2gX4bfn" })
+    const webhook = new WebhookClient({ url: process.env.consoleWebhook })
 
     webhook.send({
         content: `\`\`\`${util.format(data)}\`\`\``
     })
+
+    console.log(util.format(data))
 }
 
 process.on("uncaughtException", async (err) => {
-    const webhook = new WebhookClient({ url: "https://discord.com/api/webhooks/971669897409101855/y-gmndjdNPJxzBoiva_Y7plEaIhJy-eZm4jMCMXPCpgEjCO75bHMPVTnxOgb_T7Kuesbx" })
+    const webhook = new WebhookClient({ url: process.env.errWebhook })
     
     console.log(err.stack)
     webhook.send({
@@ -36,7 +38,7 @@ process.on("uncaughtException", async (err) => {
 })
 
 process.on("unhandledRejection", async err => {
-    const webhook = new WebhookClient({ url: "https://discord.com/api/webhooks/971669897409101855/y-gmndjdNPJxzBoiva_Y7plEaIhJy-eZm4jMCMXPCpgEjCO75bHMPVTnxOgb_T7Kuesbx" })
+    const webhook = new WebhookClient({ url: process.env.errWebhook })
     
     console.log(err.stack)
     webhook.send({
