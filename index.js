@@ -15,10 +15,10 @@ client.config = require("./config.json");
 // Initializing the project
 require("./handler")(client);
 
-client.login(process.env.token);
+client.login(process.env["token"]);
 
 console.log = (data) => {
-    const webhook = new WebhookClient({ url: process.env.consoleWebhook })
+    const webhook = new WebhookClient({ url: process.env["consoleWebhook"] })
 
     webhook.send({
         content: util.format(data)
@@ -28,7 +28,7 @@ console.log = (data) => {
 }
 
 process.on("uncaughtException", async (err) => {
-    const webhook = new WebhookClient({ url: process.env.errWebhook })
+    const webhook = new WebhookClient({ url: process.env["errWebhook"] })
     
     console.log(err.stack)
     webhook.send({
@@ -38,7 +38,7 @@ process.on("uncaughtException", async (err) => {
 })
 
 process.on("unhandledRejection", async err => {
-    const webhook = new WebhookClient({ url: process.env.errWebhook })
+    const webhook = new WebhookClient({ url: process.env["errWebhook"] })
     
     console.log(err.stack)
     webhook.send({
