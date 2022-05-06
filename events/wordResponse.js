@@ -1,6 +1,7 @@
 const chechnyaWordTimer = require("../models/chechnyaWordTimer")
 const moment = require("moment")
 const spamWordTimer = require("../models/spamWordTimer")
+const client = require("../index")
 
 client.on("messageCreate", async message => {
     if (message.author.bot) return
