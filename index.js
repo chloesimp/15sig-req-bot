@@ -29,21 +29,21 @@ handler(client)
 // }
 
 process.on("uncaughtException", async (err) => {
-    const webhook = new WebhookClient({ url: process.env["errWebhook"] })
+    // const webhook = new WebhookClient({ url: process.env["errWebhook"] })
     
     console.log(err.stack)
-    webhook.send({
-        content: `An Error Has Occured!\n\`\`\`${err.stack}\`\`\``
-    })
+    // webhook.send({
+    //     content: `An Error Has Occured!\n\`\`\`${err.stack}\`\`\``
+    // })
     console.log("Node.js is not exiting")
 })
 
 process.on("unhandledRejection", async err => {
-    const webhook = new WebhookClient({ url: process.env["errWebhook"] })
+    // const webhook = new WebhookClient({ url: process.env["errWebhook"] })
     
     console.log(err.stack)
-    webhook.send({
-        content: `An Error Has Occured!\n\`\`\`${err.stack}\`\`\``
-    })
+    // webhook.send({
+    //     content: `An Error Has Occured!\n\`\`\`${err.stack}\`\`\``
+    // })
     console.log("Node.js is not exiting")
 })
