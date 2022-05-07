@@ -8,9 +8,11 @@ client.on("messageCreate", async message => {
     if (!message.guild) return
 
     if (/\bchechnya\b/i.test(message.content)) {
-        chechnya()
-    } else if (/\bspam\b/i.test(message.content)) {
-        spam()
+        await chechnya()
+    } 
+    
+    if (/\bspam\b/i.test(message.content)) {
+        await spam()
     }
 
     // else if (/\bgeorgia\b/i.test(message.content)) {
