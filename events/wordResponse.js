@@ -2,6 +2,7 @@ const chechnyaWordTimer = require("../models/chechnyaWordTimer")
 const moment = require("moment")
 const spamWordTimer = require("../models/spamWordTimer")
 const client = require("../index")
+const ukraineWordTimer = require("../models/ukraineWordTimer")
 
 client.on("messageCreate", async message => {
     if (message.author.bot) return
@@ -13,6 +14,10 @@ client.on("messageCreate", async message => {
     
     if (/\bspam\b/i.test(message.content)) {
         await spam()
+    }
+
+    if (/\bukraine\b/i.test(message.content)) {
+        await ukraine()
     }
 
     // else if (/\bgeorgia\b/i.test(message.content)) {
@@ -314,6 +319,90 @@ client.on("messageCreate", async message => {
 
                 await message.reply({
                     content: "Spam is so fucking gross, I can't believe you americans actually like that slimy shit"
+                })
+            }
+        }
+    }
+
+    async function ukraine() {
+        const userID = message.author.id
+
+        const ukraineSchema = await ukraineWordTimer.findOne({
+            userID
+        })
+
+        const unix = moment().unix()
+
+        if (!ukraineSchema) {
+            const responses = [
+                "i fucking hate ukraine i hope russia annexes ukraine",
+                "UKRAINE PIG :pig2: :pig2: :pig2:"
+            ]
+
+            const random = Math.floor(Math.random() * responses.length)
+
+            await message.reply({
+                content: responses[random]
+            })
+
+            await ukraineWordTimer.create({
+                timestamp: moment().add(300, "s").unix(),
+                userID,
+                responseNumber: 1
+            })
+        } else {
+            if (unix < ukraineSchema.timestamp && ukraineSchema.responseNumber === 1) {
+                const responses = [
+                    "ok russia just invading ukraine and theres a billion sanctions coming my way",
+                    "bruh russia actually did it L UKRAINE WE'RE GONNA WIN"
+                ]
+
+                const random = Math.floor(Math.random() * responses.length)
+        
+                await message.reply({
+                    content: responses[random]
+                })
+
+                await ukraineWordTimer.updateOne({ userID }, { responseNumber: 2 })
+            } else if (unix < ukraineSchema.timestamp && ukraineSchema.responseNumber === 2) {
+                const responses = [
+                    "wtf i dont really hate ukraine anymore i cant do anything with these sanctions",
+                    "THE ECONOMY IS FAILING HELP PLEASE",
+                    "I CANT BUY BREAD ITS 99999 RUBLES",
+                    "FUCK RUSSIA AND FUCK PUTIN [redacted]"
+                ]
+
+                const random = Math.floor(Math.random() * responses.length)
+
+                await message.reply({
+                    content: responses[random]
+                })
+
+                await ukraineWordTimer.updateOne({ userID }, { responseNumber: 3 })
+            } else if (unix < ukraineSchema.timestamp && ukraineSchema.responseNumber === 3) {
+                await message.reply({
+                    content: "https://cdn.discordapp.com/attachments/971780223630725170/972433173331988500/ukr.mp4"
+                })
+            } else {
+                ukraineSchema.deleteOne({
+                    userID
+                })
+
+                await ukraineWordTimer.create({
+                    timestamp: moment().add(300, "s").unix(),
+                    userID,
+                    responseNumber: 1
+                })
+
+                const responses = [
+                    "i fucking hate ukraine i hope russia annexes ukraine",
+                    "UKRAINE PIG :pig2: :pig2: :pig2:"
+                ]
+    
+                const random = Math.floor(Math.random() * responses.length)
+    
+                await message.reply({
+                    content: responses[random]
                 })
             }
         }
