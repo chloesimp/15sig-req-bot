@@ -3,6 +3,7 @@ const moment = require("moment")
 const spamWordTimer = require("../models/spamWordTimer")
 const client = require("../index")
 const ukraineWordTimer = require("../models/ukraineWordTimer")
+const res = require("express/lib/response")
 
 client.on("messageCreate", async message => {
     if (message.author.bot) return
@@ -380,8 +381,14 @@ client.on("messageCreate", async message => {
 
                 await ukraineWordTimer.updateOne({ userID }, { responseNumber: 3 })
             } else if (unix < ukraineSchema.timestamp && ukraineSchema.responseNumber === 3) {
+                const responses = [
+                    "https://cdn.discordapp.com/attachments/784170210709864470/972666452526108742/t00.v0id-20220315-0001.mp4",
+                    "https://cdn.discordapp.com/attachments/971780223630725170/972433173331988500/ukr.mp4"
+                ]
+
+                const random = Math.floor(Math.random() * responses.length)
                 await message.reply({
-                    content: "https://cdn.discordapp.com/attachments/971780223630725170/972433173331988500/ukr.mp4"
+                    content: responses[random]
                 })
             } else {
                 ukraineSchema.deleteOne({
